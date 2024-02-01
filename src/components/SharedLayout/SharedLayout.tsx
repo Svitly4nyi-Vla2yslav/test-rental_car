@@ -1,8 +1,9 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-import { Header } from 'components/Header/Header';
+import  Header  from '../Header/Header';
+import React from 'react';
 
-const SharedLayout = () => {
+const SharedLayout: React.FC = () => {
   return (
     <>
       <Header />
