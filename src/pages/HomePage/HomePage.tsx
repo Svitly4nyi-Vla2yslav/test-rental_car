@@ -1,9 +1,12 @@
 import React from 'react'
+import CarsCardItem from '../../components/CarsCardItem/CarsCardItem'
 
 const HomePage: React.FC = () => {
   
   return (
-    <div>HomePage</div>
+    <div>HomePage
+      <CarsCardItem/>
+    </div>
   )
 }
 

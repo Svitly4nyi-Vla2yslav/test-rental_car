@@ -26,7 +26,7 @@ const getAllCars = operationWrapper(
     async ({ id, year, make, model, type, img, description, fuelConsumption, engineSize, accessories, functionalities, rentalPrice, rentalCompany, address, rentalConditions, mileage }: GetCars) => {
         const response = await apiService({
             method: 'get',
-            url: `catalog/favorites`,
+            url: `/adverts`,
             config: {
                 params: {
                     id,
@@ -49,9 +49,10 @@ const getAllCars = operationWrapper(
                 },
             },
         });
-console.log(response.data)
+        console.log(response.data)
         return response.data;
     }
 );
 
 export { getAllCars };
+export type { GetCars };
