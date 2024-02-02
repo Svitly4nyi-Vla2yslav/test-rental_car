@@ -1,8 +1,11 @@
+import React from 'react';
+
 import  { lazy } from 'react'
 import { Route, Routes } from 'react-router-dom';
 
 import SharedLayout from "./components/SharedLayout/SharedLayout"
 import ErrorPage from "./pages/ErrorPage/ErrorPage"
+
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"))
 const CatalogPage = lazy(() => import("./pages/CatalogPage/CatalogPage"))
