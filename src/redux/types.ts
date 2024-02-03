@@ -20,7 +20,7 @@ interface RentalCars {
 
 
 interface InitialState {
-    favorites?: RentalCars[];
+    favorites: RentalCars[];
     rentalCars: RentalCars[];
     isLoading: boolean;
     error: string | undefined;

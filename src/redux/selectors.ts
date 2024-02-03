@@ -4,4 +4,4 @@ export const selectRentalCars = (state: RootState) => state.rentalCars.rentalCar
 
 export const selectIsLoading = (state: RootState) => state.rentalCars.isLoading;
 
-// export const selectFavorites = (state: RootState) => state.rentalCars.favorites;
+export const selectFavorites = (state: RootState) => state.rentalCars.favorites;

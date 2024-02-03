@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
 import {
   Accessories,
   Adress,
@@ -7,7 +6,7 @@ import {
   CarsInfo,
   Container,
   Functionalities,
-//   Heart,
+  Heart,
   Id,
   ImageCar,
   InfoBlock,
@@ -24,59 +23,67 @@ import {
   WrapperName,
   Year,
 } from './CarsCardItem.styled';
-import { RentalCars } from '../../redux/types';
+import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from '../../redux/rootReducer/store';
-import { selectRentalCars } from '../../redux/selectors';
-import { getAllCars } from '../../redux/operations';
+import { selectFavorites, selectRentalCars } from '../../redux/selectors';
+import { toggleFavorite } from '../../redux/slice';
 
-interface CarsItemProps {
-  rentalCar: RentalCars;
+interface RentalCars {
+  rentalCar: {
+    id: number;
+    year: number;
+    make: string;
+    model: string;
+    type: string;
+    img: string;
+    description: string;
+    fuelConsumption: string;
+    engineSize: string;
+    accessories: string[];
+    functionalities: string[];
+    rentalPrice: string;
+    rentalCompany: string;
+    address: string;
+    rentalConditions: string;
+    mileage: number;
+    limit?: number;
+  };
+}
+interface ImageCarProps {
+  imgurl: string;
 }
 
-
-const CarsCardItem: React.FC<CarsItemProps> = ({rentalCar}) => {
+const CarsCardItem: React.FC<RentalCars> = ({ rentalCar }) => {
+  const [isFirstModalOpen, setIsFirstModalOpen] = useState(false);
   const dispatch = useDispatch<AppDispatch>();
-  const car = useSelector(selectRentalCars)
-    
-  console.log(car)
+  const car = useSelector(selectRentalCars);
+  const favorites = useSelector(selectFavorites);
+  const isFavorite = favorites.filter(
+    favorite => favorite.id === rentalCar.id
+  )[0];
+  const onFavoriteToggle = rentalCar => {
+    dispatch(toggleFavorite(rentalCar));
+  };
+
+  const addressParts = rentalCar.address.split(',');
+  const city = addressParts[1] ? addressParts[1].trim() : '';
+  const country = addressParts[2] ? addressParts[2].trim() : '';
 
   useEffect(() => {
-    dispatch(getAllCars(rentalCar
-    //   {
-    //   id: 9582,
-    //   year: 2008,
-    //   make: "Buick",
-    //   model: "Enclave",
-    //   type: "SUV",
-    //   img: "https://ftp.goit.study/img/cars-test-task/buick_enclave.jpeg",
-    //   description: "The Buick Enclave is a stylish and spacious SUV known for its comfortable ride and luxurious features.",
-    //   fuelConsumption: "10.5",
-    //   engineSize: "3.6L V6",
-    //   accessories: [
-    //     "Leather seats",
-    //     "Panoramic sunroof",
-    //     "Premium audio system"
-    //   ],
-    //   functionalities: [
-    //     "Power liftgate",
-    //     "Remote start",
-    //     "Blind-spot monitoring"
-    //   ],
-    //   rentalPrice: "$40",
-    //   rentalCompany:"Luxury Car Rentals",
-    //   address: "123 Example Street, Kiev, Ukraine",
-    //   rentalConditions: "Minimum age: 25\nValid driver's license\nSecurity deposit required",
-    //   mileage: 5858
-    // }
-    ));
+    if (car && isFirstModalOpen) {
+      setIsFirstModalOpen(false);
+    }
   }, [dispatch]);
+
   return (
     <>
       <Container>
         <Block>
-          {/* <ImageCar src={rentalCar.img} alt='background'>
-            <Heart>dfbzdfb</Heart>
-          </ImageCar> */}
+          <ImageCar imgurl={rentalCar.img}>
+            <Heart>
+              <use href="../../assets/Vectorheart.svg"></use>
+            </Heart>
+          </ImageCar>
           <Wrapper>
             <WrapperName>
               <TitleName>
@@ -88,19 +95,22 @@ const CarsCardItem: React.FC<CarsItemProps> = ({rentalCar}) => {
             </WrapperName>
             <InfoBlock>
               <CarsInfo>
-                <Adress>{rentalCar.address}|</Adress>
-                <RentalCompany>{rentalCar.rentalCompany}</RentalCompany>
-                <Accessories>{rentalCar.accessories}</Accessories>
-                <Type>{rentalCar.type}</Type>
+                <Adress>{city}|</Adress>
+                <Adress>{country}|</Adress>
+                <RentalCompany>{rentalCar.rentalCompany} |</RentalCompany>
+                <Accessories>{rentalCar.accessories} |</Accessories>
+                <Type>{rentalCar.type} |</Type>
                 <Model>{rentalCar.model}</Model>
-                <Id>{rentalCar.id}</Id>
-                <Functionalities>{rentalCar.functionalities}</Functionalities>
+                <Id>{rentalCar.id} |</Id>
+                <Functionalities>{rentalCar.functionalities} |</Functionalities>
               </CarsInfo>
             </InfoBlock>
           </Wrapper>
         </Block>
         <LearnButton>
-          <TextButton>Learn More</TextButton>
+          <TextButton onClick={() => setIsFirstModalOpen(true)}>
+            Learn More
+          </TextButton>
         </LearnButton>
       </Container>
     </>
@@ -108,3 +118,4 @@ const CarsCardItem: React.FC<CarsItemProps> = ({rentalCar}) => {
 };
 
 export default CarsCardItem;
+export type { ImageCarProps };

@@ -5,7 +5,25 @@ const HomePage: React.FC = () => {
   
   return (
     <div>HomePage
-      <CarsCardItem/>
+      <CarsCardItem rentalCar={{
+        id: 0,
+        year: 0,
+        make: '',
+        model: '',
+        type: '',
+        img: '',
+        description: '',
+        fuelConsumption: '',
+        engineSize: '',
+        accessories: [],
+        functionalities: [],
+        rentalPrice: '',
+        rentalCompany: '',
+        address: '',
+        rentalConditions: '',
+        mileage: 0,
+        limit: undefined
+      }}/>
     </div>
   )
 }
