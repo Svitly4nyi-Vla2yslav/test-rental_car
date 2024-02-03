@@ -2,7 +2,7 @@ import React from 'react'
 
 const CatalogPage: React.FC = () => {
   return (
-    <div>CatalogPage</div>
+    <div></div>
   )
 }
 

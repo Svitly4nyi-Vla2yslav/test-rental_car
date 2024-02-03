@@ -3,9 +3,9 @@ import { instance } from "../service/apiService";
 
 const getAllCars = createAsyncThunk(
     'adverts/getAllCars',
-    async (rentalCars, _thunkAPI) => {
+    async () => {
         const response = await instance.get( "/adverts");
-        console.log(response.data)
+        console.log(response, "response")
         return response.data;
     }
 );

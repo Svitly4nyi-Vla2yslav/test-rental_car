@@ -35,11 +35,11 @@ const slice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(getAllCars.pending, (state) => {
+      .addCase(getAllCars.pending, state => {
         state.isLoading = true;
       })
       .addCase(getAllCars.fulfilled, (state, { payload }) => {
-        state.rentalCars = payload as RentalCars[];
+        state.rentalCars = [...state.rentalCars, ...payload] as RentalCars[];
         state.isLoading = false;
       })
       .addCase(getAllCars.rejected, (state, action) => {

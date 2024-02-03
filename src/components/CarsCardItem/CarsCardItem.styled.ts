@@ -5,7 +5,6 @@ const Container = styled.div`
 align-items: flex-start;
 display: flex;
 flex-direction: column;
-border: 1px solid #661414;
 gap: 28px;
 height: 426px;
 position: relative;
@@ -33,16 +32,24 @@ height: 268px;
 overflow: hidden;
 position: relative;
 width: 274px;
-`
-  ;
+` ;
 
-const Heart = styled.svg`
-height: 18px;
-left: 242px;
+const LikeButton = styled.button`
+padding: 0;
+line-height: 0;
+border: none;
+background-color: transparent;
 position: absolute;
 top: 14px;
-width: 18px;
+right: 14px;
+transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+
+&:hover {
+  transform: scale(1.2);
+  stroke: #0b44cd;
+}
 `;
+
 const Wrapper = styled.div`
 align-items: flex-start;
 display: flex;
@@ -162,6 +169,12 @@ justify-content: center;
 padding: 12px 99px;
 position: relative;
 width: 274px;
+transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+
+&:hover,
+&:focus {
+  background: #0b44cd;
+}
 `;
 
 const TextButton = styled.p`
@@ -171,7 +184,7 @@ font-size: 14px;
 font-weight: 600;
 letter-spacing: 0;
 line-height: 20px;
-margin-top: -1px;
+padding-top: 12px;
 position: relative;
 white-space: nowrap;
 width: fit-content;
@@ -179,9 +192,10 @@ width: fit-content;
 
 
 export {
-  Container, Block, ImageCar, Heart, Wrapper,
+  Container, Block, ImageCar, Wrapper,
   WrapperName, TitleName, Make,
   ModelAuto, Year, Price, InfoBlock,
   CarsInfo, Adress, RentalCompany, Accessories,
-  Type, Model, Id, Functionalities, LearnButton, TextButton
+  Type, Model, Id, Functionalities, LearnButton, TextButton,
+  LikeButton
 };

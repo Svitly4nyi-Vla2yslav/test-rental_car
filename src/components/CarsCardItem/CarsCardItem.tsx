@@ -6,11 +6,11 @@ import {
   CarsInfo,
   Container,
   Functionalities,
-  Heart,
   Id,
   ImageCar,
   InfoBlock,
   LearnButton,
+  LikeButton,
   Make,
   Model,
   ModelAuto,
@@ -23,6 +23,8 @@ import {
   WrapperName,
   Year,
 } from './CarsCardItem.styled';
+import HeartBorderIcon from '@mui/icons-material/FavoriteBorder';
+import HeartOutlinedIcon from '@mui/icons-material/FavoriteOutlined';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from '../../redux/rootReducer/store';
 import { selectFavorites, selectRentalCars } from '../../redux/selectors';
@@ -61,7 +63,7 @@ const CarsCardItem: React.FC<RentalCars> = ({ rentalCar }) => {
   const isFavorite = favorites.filter(
     favorite => favorite.id === rentalCar.id
   )[0];
-  const onFavoriteToggle = rentalCar => {
+  const favoriteToggle = rentalCar => {
     dispatch(toggleFavorite(rentalCar));
   };
 
@@ -70,19 +72,33 @@ const CarsCardItem: React.FC<RentalCars> = ({ rentalCar }) => {
   const country = addressParts[2] ? addressParts[2].trim() : '';
 
   useEffect(() => {
-    if (car && isFirstModalOpen) {
+    if (rentalCar && isFirstModalOpen) {
       setIsFirstModalOpen(false);
     }
   }, [dispatch]);
+
+  console.log(rentalCar)
+  console.log(car)
+  console.log(dispatch)
 
   return (
     <>
       <Container>
         <Block>
           <ImageCar imgurl={rentalCar.img}>
-            <Heart>
-              <use href="../../assets/Vectorheart.svg"></use>
-            </Heart>
+            <LikeButton onClick={() => favoriteToggle} >
+          {isFavorite ? (
+            <HeartOutlinedIcon
+              fontSize="medium"
+              style={{ fill: '#3470ff' }}
+            />
+          ) : (
+            <HeartBorderIcon
+              fontSize="medium"
+              style={{ fill: '#ffffffcc' }}
+            />
+          )}
+          </LikeButton>
           </ImageCar>
           <Wrapper>
             <WrapperName>
