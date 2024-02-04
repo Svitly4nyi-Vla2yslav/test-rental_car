@@ -1,18 +1,17 @@
-import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-import  Header  from '../Header/Header';
+import Header from '../Header/Header';
 import React from 'react';
-import CarsCardItem from '../CarsCardItem/CarsCardItem';
-import CarsCardList from '../CarsCardList/CarsCardList';
+
+import MainContainer from '../Container/Container';
 
 const SharedLayout: React.FC = ({}) => {
   return (
-    <>
+    <MainContainer>
       <Header />
-      <Suspense fallback={null}>
+      <main>
         <Outlet />
-      </Suspense>
-    </>
+      </main>
+    </MainContainer>
   );
 };
 

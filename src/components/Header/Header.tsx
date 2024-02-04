@@ -1,10 +1,22 @@
 import React from 'react'
-import CarsCardList from '../CarsCardList/CarsCardList';
+import { HeaderContainer, HeaderWrap,  NavWrap, UserBarWrapper, UserContainer, Wrapper } from './Header.styled';
+import { Link } from 'react-router-dom';
+import Navigation from '../Navigation/Navagation';
+
 
 const Header: React.FC = () => {
   return (
-    <div>
-      <CarsCardList/>
+    <div>  <Wrapper>
+    <HeaderContainer>
+      <HeaderWrap>
+          <UserContainer>
+            <NavWrap>
+              <Navigation />
+            </NavWrap>
+          </UserContainer>
+        </HeaderWrap>
+      </HeaderContainer>
+    </Wrapper>
     </div>
   )
 }

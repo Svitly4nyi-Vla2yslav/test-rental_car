@@ -17,6 +17,7 @@
     "@mui/material": "^5.15.7",
     "@reduxjs/toolkit": "^2.1.0",
     "@vitejs/plugin-react-swc": "^3.3.2",
+    "antd": "^5.14.0",
     "axios": "^1.6.7",
     "modern-normalize": "^2.0.0",
     "normalize.css": "^8.0.1",

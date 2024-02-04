@@ -60,11 +60,10 @@ width: 274px;
 `;
 
 const WrapperName = styled.div`
-align-items: flex-start;
-display: inline-flex;
-flex: 0 0 auto;
-gap: 87px;
-position: relative;
+display: flex;
+  justify-content: space-between;
+  min-width: 100% ;
+  flex-wrap: wrap;
 `;
 
 const TitleName = styled.p`
@@ -97,10 +96,7 @@ font-size: 16px;
 font-weight: 500;
 letter-spacing: 0;
 line-height: 24px;
-margin-top: -1px;
-position: relative;
-white-space: nowrap;
-width: fit-content;
+
 `;
 
 const InfoBlock = styled.div`
@@ -114,25 +110,38 @@ width: 270px;
 `;
 
 const CarsInfo = styled.div`
-align-items: center;
-display: inline-flex;
-flex: 0 0 auto;
-gap: 6px;
-justify-content: center;
-position: relative;
+ display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-bottom: 10px;
+  max-height: 39px;
+  color: rgba(18, 20, 23, 0.5);
+  font-size: 12px;
+  line-height: 60%;
+
 `;
 
 const sharedStyles = styled.p`
-color: #12141780;
+color: #3470FF;
 font-family: "Manrope-Regular", Helvetica;
 font-size: 12px;
 font-weight: 400;
 letter-spacing: 0;
-line-height: 18px;
-margin-top: -1px;
 position: relative;
-white-space: nowrap;
-width: fit-content;
+padding: 0px;
+    &:not(:last-child) {
+      margin-right: 12px;
+    }
+    &:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 1px;
+      background-color: rgba(18, 20, 23, 0.1);
+      height: 16px;
+      top: 2px;
+      right: -6px;
+    }
 `;
 const Adress = styled.p`
 ${sharedStyles}

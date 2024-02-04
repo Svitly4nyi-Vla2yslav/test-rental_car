@@ -4,6 +4,8 @@ import CarsCardList from '../../components/CarsCardList/CarsCardList';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectIsLoading } from '../../redux/selectors';
 import { getAllCars } from '../../redux/operations';
+import Footer from '../../components/Footer/Footer';
+import Header from '../../components/Header/Header';
 
 const HomePage: React.FC = () => {
   const dispatch = useDispatch();
@@ -14,8 +16,9 @@ const HomePage: React.FC = () => {
   }, [dispatch]);
   return (
     <div>
+      <Header/>
       HomePage
-      <CarsCardList />
+      <Footer/>
     </div>
   );
 };
