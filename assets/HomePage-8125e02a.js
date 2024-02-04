@@ -1,1 +1,0 @@
-import{u as t,r as e,g as r,j as a,C as o}from"./index-49f49749.js";const i=()=>{const s=t();return e.useEffect(()=>{s(r())},[s]),a.jsxs("div",{children:["HomePage",a.jsx(o,{})]})};export{i as default};
