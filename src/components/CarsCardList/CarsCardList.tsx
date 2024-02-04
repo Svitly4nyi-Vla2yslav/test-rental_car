@@ -5,11 +5,11 @@ import CarsCardItem from '../CarsCardItem/CarsCardItem';
 import { CardList } from './CarsCardList.styled';
 
 const CarsCardList: React.FC = () => {
-  const rentalCars = useSelector(selectRentalCars);
-
+  const cars = useSelector(selectRentalCars);
+console.log(cars)
   return (
     <CardList>
-      {rentalCars.map(rentalCar => (
+      {cars.map(rentalCar => (
         <CarsCardItem key={rentalCar.id} rentalCar={rentalCar} />
       ))}
     </CardList>

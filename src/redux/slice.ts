@@ -14,7 +14,7 @@ const initialState: InitialState = {
 };
 
 const slice = createSlice({
-  name: "catalog",
+  name: "adverts",
   initialState,
   reducers: {
     toggleFavorite: (state, action: PayloadAction<RentalCars>) => {
@@ -38,9 +38,10 @@ const slice = createSlice({
       .addCase(getAllCars.pending, state => {
         state.isLoading = true;
       })
-      .addCase(getAllCars.fulfilled, (state, { payload }) => {
-        state.rentalCars = [...state.rentalCars, ...payload] as RentalCars[];
+      .addCase(getAllCars.fulfilled, (state, action) => {
         state.isLoading = false;
+        state.rentalCars = action.payload as RentalCars[];
+        
       })
       .addCase(getAllCars.rejected, (state, action) => {
         state.isLoading = false;

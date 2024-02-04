@@ -1,8 +1,11 @@
 import React from 'react'
+import CarsCardList from '../CarsCardList/CarsCardList';
 
 const Header: React.FC = () => {
   return (
-    <div>Header</div>
+    <div>
+      <CarsCardList/>
+    </div>
   )
 }
 

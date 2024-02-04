@@ -77,9 +77,6 @@ const CarsCardItem: React.FC<RentalCars> = ({ rentalCar }) => {
     }
   }, [dispatch]);
 
-  console.log(rentalCar)
-  console.log(car)
-  console.log(dispatch)
 
   return (
     <>
