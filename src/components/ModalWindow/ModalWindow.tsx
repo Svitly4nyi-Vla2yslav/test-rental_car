@@ -16,6 +16,7 @@ import {
 } from './ModalWindow.styled';
 import React from 'react';
 import { RentalCars } from '../../redux/types';
+import { LinkText } from '../Navigation/Navigation.styled';
 
 interface ModalWindowProps {
   rentalCar: RentalCars | null;
@@ -132,7 +133,7 @@ const ModalWindow: React.FC<ModalWindowProps> = ({ rentalCar, onClose }) => {
               </StyledList>
             )}
             <BtnRentalCar htmlType="submit" type="primary">
-              Rental Car
+              <LinkText href="tel:+380730000000">Rental Car</LinkText>
             </BtnRentalCar>
           </InformCar>
         )}

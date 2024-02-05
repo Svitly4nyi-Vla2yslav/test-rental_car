@@ -30,8 +30,7 @@ import { AppDispatch } from '../../redux/rootReducer/store';
 import { selectFavorites, selectRentalCars } from '../../redux/selectors';
 import { toggleFavorite } from '../../redux/slice';
 import errorCaar from '../../assets/caaar.jpg';
-// import ModalInfoCard from '../ModalInfoCard/ModalInfoCard';
-import Button from '../Button/Button';
+
 interface RentalCars {
   rentalCar: {
     id: number;
@@ -55,13 +54,11 @@ interface RentalCars {
   onLearnMore: (rentalCar: RentalCars['rentalCar']) => void;
 }
 
-
 interface ImageCarProps {
   imgurl: string;
 }
 
 const CarsCardItem: React.FC<RentalCars> = ({ rentalCar, onLearnMore }) => {
-  // const [isModalOpen, setIsModalOpen] = useState(false);
   const dispatch = useDispatch<AppDispatch>();
   const car = useSelector(selectRentalCars);
   const favorites = useSelector(selectFavorites);
@@ -71,20 +68,6 @@ const CarsCardItem: React.FC<RentalCars> = ({ rentalCar, onLearnMore }) => {
   const favoriteToggle = rentalCar => {
     dispatch(toggleFavorite(rentalCar));
   };
-
-  // const toggleModal = () => {
-  //   setIsModalOpen(prev => !prev);
-  // };
-
-  // const addressParts = rentalCar.address.split(',');
-  // const city = addressParts[1] ? addressParts[1].trim() : '';
-  // const country = addressParts[2] ? addressParts[2].trim() : '';
-
-  // useEffect(() => {
-  //   if (rentalCar && ModalOpen) {
-  //     setIsFirstModalOpen(false);
-  //   }
-  // }, [dispatch]);
 
   return (
     <>
@@ -142,16 +125,9 @@ const CarsCardItem: React.FC<RentalCars> = ({ rentalCar, onLearnMore }) => {
             </InfoBlock>
           </Wrapper>
         </Block>
-        
-        <LearnButton  
-        // htmlType='submit'
-        // type='primary'
-        onClick={() => onLearnMore(rentalCar)}>
+        <LearnButton onClick={() => onLearnMore(rentalCar)}>
           <TextButton>Learn More</TextButton>
-          
         </LearnButton>
-        
-        {/* {isModalOpen && <ModalInfoCard rentalCar={rentalCar} onClose={toggleModal} />} */}
       </Container>
     </>
   );

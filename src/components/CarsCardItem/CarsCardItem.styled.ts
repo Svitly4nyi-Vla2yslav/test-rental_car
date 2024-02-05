@@ -9,6 +9,10 @@ gap: 28px;
 height: 426px;
 position: relative;
 width: 274px;
+
+&:last-child {
+  margin-bottom: 120px;
+}
 `;
 
 const Block = styled.div`

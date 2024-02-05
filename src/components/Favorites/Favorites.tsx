@@ -1,20 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import CarsCardItem from '../CarsCardItem/CarsCardItem';
 import { StyledFavoritesList } from './Favorites.styled';
 import { RentalCars } from '../../redux/types';
+import ModalWindow from '../ModalWindow/ModalWindow';
 
 interface FavoritesProps {
-    favorites: RentalCars[];
-  }
+  favorites: RentalCars[];
+}
 
-const Favorites: React.FC<FavoritesProps>  = ({ favorites }) => {
+const Favorites: React.FC<FavoritesProps> = ({ favorites }) => {
+  const [selectedCar, setSelectedCar] = useState<RentalCars | null>(null);
+
+
+  const handleLearnMore = (rentalCar: RentalCars): void => {
+    setSelectedCar(rentalCar);
+    console.log('Learn More clicked:', rentalCar);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedCar(null);
+  };
+
   return (
     <StyledFavoritesList>
       {favorites.map(favorite => (
-        <CarsCardItem key={favorite.id} rentalCar={favorite} onLearnMore={function (rentalCar: { id: number; year: number; make: string; model: string; type: string; img: string; description: string; fuelConsumption: string; engineSize: string; accessories: string[]; functionalities: string[]; rentalPrice: string; rentalCompany: string; address: string; rentalConditions: string; mileage: number; limit?: number | undefined; }): void {
-              throw new Error('Function not implemented.');
-          } } />
+        <CarsCardItem
+          key={favorite.id}
+          rentalCar={favorite}
+          onLearnMore={handleLearnMore}
+        />
       ))}
+      {selectedCar && (
+        <ModalWindow rentalCar={selectedCar} onClose={handleCloseModal} />
+      )}
     </StyledFavoritesList>
   );
 };
