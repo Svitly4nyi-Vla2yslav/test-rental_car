@@ -1,5 +1,20 @@
 import styled from 'styled-components';
 
+const Container = styled.div`
+display: flex;
+justify-content: center;
+align-items: center;
+flex-wrap: wrap;
+ 
+`;
+
+const NotFilters = styled.div`
+  display: flex;
+  justify-content: center;
+  font-family: 'Manrope';
+  font-size: 24px;
+`
+
 const CardList = styled.ul`
 margin-top: 100px;
 display: flex;
@@ -27,4 +42,4 @@ const LinkLoadMore = styled.a`
     color: rgba(11, 68, 205, 1);
   }
 `
-export {CardList, LinkLoadMore}
+export {CardList, LinkLoadMore, Container, NotFilters}

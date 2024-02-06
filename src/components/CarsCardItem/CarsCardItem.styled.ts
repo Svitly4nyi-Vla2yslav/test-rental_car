@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { ImageCarProps } from './CarsCardItem';
 
 const Container = styled.div`
+background-color: rgba(255, 255, 255, 0.8);
 align-items: flex-start;
 display: flex;
 flex-direction: column;
@@ -9,7 +10,7 @@ gap: 28px;
 height: 426px;
 position: relative;
 width: 274px;
-
+border-radius: 14px;
 &:last-child {
   margin-bottom: 120px;
 }
