@@ -27,7 +27,7 @@ align-items: flex-start;
 `;
 
 const ImageCar = styled.div<ImageCarProps>`
-  background-image: ${({ imgurl }) => `url(${imgurl})`};
+background-image: ${({ $imgurl }) => `url(${$imgurl})`};
 background-position: 50% 50%;
 background-size: cover;
 background-repeat: no-repeat;

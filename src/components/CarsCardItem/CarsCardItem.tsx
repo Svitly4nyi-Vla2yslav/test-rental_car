@@ -55,7 +55,7 @@ interface RentalCars {
 }
 
 interface ImageCarProps {
-  imgurl: string;
+  $imgurl: string;
 }
 
 const CarsCardItem: React.FC<RentalCars> = ({ rentalCar, onLearnMore }) => {
@@ -73,7 +73,7 @@ const CarsCardItem: React.FC<RentalCars> = ({ rentalCar, onLearnMore }) => {
     <>
       <Container>
         <Block>
-          <ImageCar imgurl={rentalCar.img || errorCaar}>
+        <ImageCar $imgurl={rentalCar.img || errorCaar}>
             <LikeButton onClick={() => favoriteToggle(rentalCar)}>
               {isFavorite ? (
                 <HeartOutlinedIcon

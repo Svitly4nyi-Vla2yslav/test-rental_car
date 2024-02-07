@@ -17,13 +17,13 @@ const HomePage: React.FC = () => {
   //   dispatch(getAllCars() as any);
   // }, [dispatch]);
   return (
-    <>
+    <Container>
       <Header/>
       <Background/>
 
       
       <Footer/>
-    </>
+    </Container>
   );
 };
 
