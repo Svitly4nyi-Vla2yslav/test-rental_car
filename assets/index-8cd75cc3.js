@@ -179,7 +179,7 @@ position: fixed;
   font-weight: bold;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 `,_5=()=>R.jsxs($5,{children:[R.jsx(R5,{children:"Welcome to our car rental website!"}),R.jsx("p",{children:"We provide a wide range of high-quality cars at affordable prices."}),R.jsx("p",{children:"Whether you're dreaming of an exciting journey or just need a reliable car for your daily commutes, we've got you covered."}),R.jsx("p",{children:"Join our satisfied customers' community and choose the car of your dreams!"})]}),A5=Z.main`
-background-image: url('/src/assets/rent-a-car-vacation-hero-1.gif'); 
+background-image: url('/src/assets/wp11965249.jpg'); 
 background-size: cover;
 background-position: center;
 background-size:  100%;
