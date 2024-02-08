@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 export const Container = styled.main`
-background-image: url('/src/assets/rent-a-car-vacation-hero-1.gif'); 
+background-image: url('/src/assets/wp11965249.jpg'); 
 background-size: cover;
 background-position: center;
 background-size:  100%;
